@@ -24,7 +24,7 @@ module CAL_GT_2(
     );
 
     ////////////////////////
-    /* Add your code here */
+    
     ////////////////////////
 
 endmodule
@@ -37,7 +37,12 @@ module CAL_EQ_2(
     );
 
     ////////////////////////
-    /* Add your code here */
+    wire zeroEQ, oneEQ, twoEQ, threeEQ;
+    assign zeroEQ  = !inA[0] & !inA[1] & !inB[0] & !inB[1];
+    assign oneEQ   = !inA[0] &  inA[1] & !inB[0] &  inB[1];
+    assign twoEQ   =  inA[0] & !inA[1] &  inB[0] & !inB[1];
+    assign threeEQ =  inA[0] &  inA[1] &  inB[0] &  inB[1];
+    assign outEQ = zeroEQ | oneEQ | twoEQ | threeEQ;
     ////////////////////////
 
 endmodule
