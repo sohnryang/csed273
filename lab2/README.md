@@ -41,7 +41,7 @@ Minterm expansion을 통해 그대로 나타낸 결과는 다음과 같다.
 
 $$
 \begin{align*}
-  F(x, y) &= \sum m(0, 5, 10, 15) \\
+  F(A_0, A_1, B_0, B_1) &= \sum m(0, 5, 10, 15) \\
           &= A_0' A_1' B_0' B_1' + A_0' A_1 B_0' B_1 + A_0 A_1' B_0 B_1' + A_0 A_1 B_0 B_1
 \end{align*}
 $$
@@ -77,7 +77,7 @@ Minterm expansion을 사용하면 다음과 같다.
 
 $$
 \begin{align*}
-F(x, y) &= \sum m(1, 2, 3, 7, 9, 11) \\
+F(A_0, A_1, B_0, B_1) &= \sum m(1, 2, 3, 7, 9, 11) \\
         &= A_0' A_1' B_0' B_1 + A_0' A_1' B_0 B_1' + A_0' A_1' B_0 B_1 + A_0' A_1 B_0 B_1 \\
         &+ A_0' A_1 B_0 B_1 + A_0 A_1' B_0 B_1
 \end{align*}
@@ -90,7 +90,7 @@ K-map을 그려보면 다음과 같다.
 모든 prime implicant가 essential prime implicant임을 알 수 있고, 따라서 각 prime implicant들을 OR로 합쳐서 다음과 같이 simplification 결과를 쓸 수 있다.
 
 $$
-F(x, y) = A_1' B_1 + A_0' B_0 B_1 + A_0' A_1' B_0
+F(A_0, A_1, B_0, B_1) = A_1' B_1 + A_0' B_0 B_1 + A_0' A_1' B_0
 $$
 
 `A > B`에서의 truth table을 그리면
@@ -118,7 +118,7 @@ Minterm expansion을 사용하면 다음과 같다.
 
 $$
 \begin{align*}
-  F(x, y) &= \sum m(4, 6, 8, 12, 13, 14) \\
+  F(A_0, A_1, B_0, B_1) &= \sum m(4, 6, 8, 12, 13, 14) \\
           &= A_0' A_1 B_0' B_1' + A_0' A_1 B_0 B_1' + A_0 A_1' B_0' B_1' + A_0 A_1 B_0' B_1' \\
           &+ A_0 A_1 B_0' B_1 + A_0 A_1 B_0 B_1'
 \end{align*}
@@ -131,7 +131,7 @@ K-map을 그려보면 다음과 같다.
 모든 prime implicant가 여기서도 essential prime implicant이고, 앞서와 똑같이 simplification을 하면 다음과 같이 쓸 수 있다.
 
 $$
-F(x, y) = A_1 B_1' + A_0 B_0' B_1' + A_0 A_1 B_0'
+F(A_0, A_1, B_0, B_1) = A_1 B_1' + A_0 B_0' B_1' + A_0 A_1 B_0'
 $$
 
 ## 실험 결과
