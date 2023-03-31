@@ -24,6 +24,7 @@ module CAL_GT_2(
     );
 
     ////////////////////////
+    // Simplified expression: refer to the report
     assign outGT = inA[1] & ~inB[1] | inA[0] & ~inB[0] & ~inB[1] | inA[0] & inA[1] & ~inB[0];
     ////////////////////////
 
@@ -37,12 +38,12 @@ module CAL_EQ_2(
     );
 
     ////////////////////////
-    wire zeroEQ, oneEQ, twoEQ, threeEQ;
-    assign zeroEQ  = ~inA[0] & ~inA[1] & ~inB[0] & ~inB[1];
-    assign oneEQ   = ~inA[0] &  inA[1] & ~inB[0] &  inB[1];
-    assign twoEQ   =  inA[0] & ~inA[1] &  inB[0] & ~inB[1];
-    assign threeEQ =  inA[0] &  inA[1] &  inB[0] &  inB[1];
-    assign outEQ = zeroEQ | oneEQ | twoEQ | threeEQ;
+    wire min0000, min0101, min1010, min1111; // define minterms
+    assign min0000 = ~inA[0] & ~inA[1] & ~inB[0] & ~inB[1];
+    assign min0101 = ~inA[0] &  inA[1] & ~inB[0] &  inB[1];
+    assign min1010 =  inA[0] & ~inA[1] &  inB[0] & ~inB[1];
+    assign min1111 =  inA[0] &  inA[1] &  inB[0] &  inB[1];
+    assign outEQ = min0000 | min0101 | min1010 | min1111; // do or for all minterms
     ////////////////////////
 
 endmodule
@@ -55,6 +56,7 @@ module CAL_LT_2(
     );
 
     ////////////////////////
+    // Simplified expression: refer to the report
     assign outLT = ~inA[1] & inB[1] | ~inA[0] & inB[0] & inB[1] | ~inA[0] & ~inA[1] & inB[0];
     ////////////////////////
 

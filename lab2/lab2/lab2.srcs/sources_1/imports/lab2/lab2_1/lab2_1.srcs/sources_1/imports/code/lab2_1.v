@@ -24,14 +24,14 @@ module CAL_GT(
     );
 
     ////////////////////////
-    wire min0100, min0110, min1000, min1100, min1101, min1110;
+    wire min0100, min0110, min1000, min1100, min1101, min1110; // define minterms
     assign min0100 = ~inA[0] &  inA[1] & ~inB[0] & ~inB[1];
     assign min0110 = ~inA[0] &  inA[1] &  inB[0] & ~inB[1];
     assign min1000 =  inA[0] & ~inA[1] & ~inB[0] & ~inB[1];
     assign min1100 =  inA[0] &  inA[1] & ~inB[0] & ~inB[1];
     assign min1101 =  inA[0] &  inA[1] & ~inB[0] &  inB[1];
     assign min1110 =  inA[0] &  inA[1] &  inB[0] & ~inB[1];
-    assign outGT = min0100 | min0110 | min1000 | min1100 | min1101 | min1110;
+    assign outGT = min0100 | min0110 | min1000 | min1100 | min1101 | min1110; // do or for all minterms
     ////////////////////////
 
 endmodule
@@ -44,12 +44,12 @@ module CAL_EQ(
     );
 
     ////////////////////////
-    wire zeroEQ, oneEQ, twoEQ, threeEQ;
-    assign zeroEQ  = ~inA[0] & ~inA[1] & ~inB[0] & ~inB[1];
-    assign oneEQ   = ~inA[0] &  inA[1] & ~inB[0] &  inB[1];
-    assign twoEQ   =  inA[0] & ~inA[1] &  inB[0] & ~inB[1];
-    assign threeEQ =  inA[0] &  inA[1] &  inB[0] &  inB[1];
-    assign outEQ = zeroEQ | oneEQ | twoEQ | threeEQ;
+    wire min0000, min0101, min1010, min1111; // define minterms
+    assign min0000 = ~inA[0] & ~inA[1] & ~inB[0] & ~inB[1];
+    assign min0101 = ~inA[0] &  inA[1] & ~inB[0] &  inB[1];
+    assign min1010 =  inA[0] & ~inA[1] &  inB[0] & ~inB[1];
+    assign min1111 =  inA[0] &  inA[1] &  inB[0] &  inB[1];
+    assign outEQ = min0000 | min0101 | min1010 | min1111; // do or for all minterms
     ////////////////////////
 
 endmodule
@@ -62,14 +62,14 @@ module CAL_LT(
     );
 
     ////////////////////////
-    wire min0001, min0010, min0011, min0111, min1001, min1011;
+    wire min0001, min0010, min0011, min0111, min1001, min1011; // define minterms
     assign min0001 = ~inA[0] & ~inA[1] & ~inB[0] &  inB[1];
     assign min0010 = ~inA[0] & ~inA[1] &  inB[0] & ~inB[1];
     assign min0011 = ~inA[0] & ~inA[1] &  inB[0] &  inB[1];
     assign min0111 = ~inA[0] &  inA[1] &  inB[0] &  inB[1];
     assign min1001 =  inA[0] & ~inA[1] & ~inB[0] &  inB[1];
     assign min1011 =  inA[0] & ~inA[1] &  inB[0] &  inB[1];;
-    assign outLT = min0001 | min0010 | min0011 | min0111 | min1001 | min1011;
+    assign outLT = min0001 | min0010 | min0011 | min0111 | min1001 | min1011; // do or for all minterms
     ////////////////////////
 
 endmodule
