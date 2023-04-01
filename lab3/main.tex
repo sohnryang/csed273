@@ -99,7 +99,10 @@
 \(I_3 = I_2 = 0\)의 경우에는 \(Y_{15} = Y_{14} = \dots = Y_4 = 1\)이고 \(Y_3, Y_2, Y_1, Y_0\)에서 \(I_1, I_0\)에 따른 출력이 나타나게 되며, 이들만 놓고 보면 2-to-4 decoder의 출력과 같다.
 \(I_3 = 0, I_2 = 1\)의 경우 \(Y_7, \dots, Y_3\)에서, \(I_3 = 1, I_2 = 0\)의 경우 \(Y_{11}, \dots, Y_4\), \(I_3 = I_2 = 1\)의 경우에는 \(Y_{15}, \dots, Y_{12}\)에서 2-to-4 decoder의 출력이 나타날 것을 알 수 있다.
 따라서, 2-to-4 decoder 5개를 사용해서, \(I_3, I_2\)의 값에 따라 \texttt{EN} 핀에 입력을 주어 적당히 enable, disable하면 4-to-16 decoder를 만들 수 있을 것이다.
-(TODO: 여기에 회로도 추가)
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\linewidth]{decoder_expansion}
+\end{figure}
 
 \subsection{4-bit 소수 판별기}
 4-bit 소수 판별기는 minterm 표기법으로 나타내면 다음과 같다.
@@ -250,7 +253,7 @@ SOP 형태로 바꾸면 다음과 같다.
   F(A, B, C, D, E) &= AB (C' D' E + C' D E' + C D' E') \\
                    &+ (A + B)(C' D E + C D' E + C D E') + CDE \\
 \end{align*}
-멀티플렉서의 선택 신호를 \(C, D, D\)로 하고, 입력 신호를 \(0, 1, AB, A + B\) 중에서 적절히 고르면 \(F\)를 구현할 수 있을 것이다.
+멀티플렉서의 선택 신호를 \(C, D, E\)로 하고, 입력 신호를 \(0, 1, AB, A + B\) 중에서 적절히 고르면 \(F\)를 구현할 수 있을 것이다.
 이를 나타내면 다음과 같다.
 \begin{table}[H]
   \centering
@@ -271,7 +274,45 @@ SOP 형태로 바꾸면 다음과 같다.
 \end{table}
 
 \section{실험 결과}
+\texttt{lab3\_1.v}의 테스트벤치를 실행하여 얻은 결과는 다음과 같다.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{lab3_1_waveform}
+\end{figure}
+입력으로 들어가는 4비트 숫자가 1씩 증가하면서 `참'에 해당하는 출력이 한 개의 핀에서만 나오는 것을 볼 수 있고, \texttt{en}이 1일때, 즉 비활성화 상태에서는 모든 출력 핀에서 `거짓'에 해당되는 출력이 나오는 것을 볼 수 있었다.
+다음과 같은 schematic을 얻을 수 있었다.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{lab3_1_schematic}
+\end{figure}
+
+\texttt{lab3\_2.v}의 테스트벤치 실행 결과는 다음과 같다.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{lab3_2_waveform}
+\end{figure}
+2, 3, 5, 7, 11에 대해 \texttt{out\_prime}에서 소수 판정 결과를 1로 나타내는 것을 볼 수 있다.
+배수 판정의 경우, MSB부터 11, 7, 5, 3, 2의 배수인지에 대한 결과가 정확하게 나타남을 볼 수 있다.
+Schematic은 다음과 같다.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{lab3_2_schematic}
+\end{figure}
+
+\texttt{lab3\_3.v}의 테스트벤치 실행 결과는 다음과 같다.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{lab3_3_waveform}
+\end{figure}
+0과 1 중에서 더 개수가 많은 수를 정확히 출력함을 볼 수 있다.
+Schematic은 다음과 같다.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{lab3_3_schematic}
+\end{figure}
 
 \section{논의}
+이번 lab 3에서는 디코더와 멀티플렉서를 사용하여 다른 소자를 구현해 볼 수 있었다.
+수업 시간에 이론으로 들었던 내용이 실제 적용되는 모습을 볼 수 있어서 이들 소자를 이해하는 데에 도움이 되었다.
 
 \end{document}
