@@ -33,7 +33,7 @@ module lab3_3(
     );
 
     ////////////////////////
-    wire [7:0] mux_data_input;
+    wire [7:0] mux_data_input; // data input to mux
     assign mux_data_input[0] = 0;
     assign mux_data_input[1] = in[0] & in[1];
     assign mux_data_input[2] = in[0] & in[1];
@@ -42,9 +42,9 @@ module lab3_3(
     assign mux_data_input[5] = in[0] | in[1];
     assign mux_data_input[6] = in[0] | in[1];
     assign mux_data_input[7] = 1;
-    wire [3:0] mux_select_input;
-    assign mux_select_input[3:0] = in[4:2];
-    mux mux0(mux_data_input, mux_select_input, out); 
+    wire [3:0] mux_select_input; // select input to mux
+    assign mux_select_input[3:0] = in[4:2]; // feed high 3 bits
+    mux mux0(mux_data_input, mux_select_input, out);
     ////////////////////////
 
 endmodule
