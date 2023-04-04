@@ -107,7 +107,7 @@
 \subsection{4-bit 소수 판별기}
 4-bit 소수 판별기는 minterm 표기법으로 나타내면 다음과 같다.
 \[
-  F(A_0, A_1, A_2, A_3) = \sum m(0100_2, 1010_2, 1100_2, 1101_2, 1110_2)
+  F(A_0, A_1, A_2, A_3) = \sum m(0100_2, 1010_2, 1011_2, 1100_2, 1101_2, 1110_2)
 \]
 Truth table을 그리면
 \begin{table}[H]
@@ -127,7 +127,7 @@ Truth table을 그리면
     1       & 0       & 0       & 0       & 0   \\
     1       & 0       & 0       & 1       & 0   \\
     1       & 0       & 1       & 0       & 1   \\
-    1       & 0       & 1       & 1       & 0   \\
+    1       & 0       & 1       & 1       & 1   \\
     1       & 1       & 0       & 0       & 1   \\
     1       & 1       & 0       & 1       & 1   \\
     1       & 1       & 1       & 0       & 1   \\
@@ -140,61 +140,62 @@ K-map을 그리면 다음과 같다.
   \centering
   \includegraphics[width=0.3\linewidth]{lab3_2_km}
 \end{figure}
-EPI를 고르면 모든 1이 커버되므로, simplification한 대수식은 다음과 같다.
+EPI를 고르면 \(A_1 A_2' A_3', A_0 A_1 A_2', A_0 A_1' A_2\)이다.
+남은 1을 커버하도록 \(A_0 A_1 A_3'\)을 고르면 다음과 같은 SOP 형태의 식을 얻는다.
 \[
-  F(A_0, A_1, A_2, A_3) = A_0 A_1 A_2' + A_0 A_2 A_3' + A_1 A_2' A_3'
+  F(A_0, A_1, A_2, A_3) = A_0 A_1 A_2' + A_0 A_1' A_2 + A_0 A_1 A_3' + A_1 A_2' A_3'
 \]
 
 \subsection{4-bit 배수 판별기}
-11의 배수는 0, 11이므로, K-map을 그리면
+11의 배수는 11이므로, K-map을 그리면
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.3\linewidth]{lab3_2_11_km}
 \end{figure}
 따라서 simplification 한 결과는 다음과 같다.
 \[
-  F_{11}(A_0, A_1, A_2, A_3) = A_0' A_1' A_2' A_3' + A_0 A_1 A_2' A_3
+  F_{11}(A_0, A_1, A_2, A_3) = A_0 A_1 A_2' A_3
 \]
 
-7의 배수는 0, 7, 14이므로, K-map을 그리면
+7의 배수는 7, 14이므로, K-map을 그리면
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.3\linewidth]{lab3_2_7_km}
 \end{figure}
 따라서 simplification 한 결과는 다음과 같다.
 \[
-  F_7(A_0, A_1, A_2, A_3) = A_0' A_1' A_2' A_3' + A_0 A_1 A_2 A_3' + A_0' A_1 A_2 A_3
+  F_7(A_0, A_1, A_2, A_3) = A_0 A_1 A_2 A_3' + A_0' A_1 A_2 A_3
 \]
 
-5의 배수는 0, 5, 10, 15이므로, K-map을 그리면
+5의 배수는 5, 10, 15이므로, K-map을 그리면
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.3\linewidth]{lab3_2_5_km}
 \end{figure}
 따라서 simplification 한 결과는 다음과 같다.
 \[
-  F_5(A_0, A_1, A_2, A_3) = A_0' A_1' A_2' A_3' + A_0 A_1' A_2 A_3' + A_0' A_1 A_2' A_3 + A_0 A_1 A_2 A_3
+  F_5(A_0, A_1, A_2, A_3) = A_0 A_1' A_2 A_3' + A_0' A_1 A_2' A_3 + A_0 A_1 A_2 A_3
 \]
 
-3의 배수는 0, 3, 6, 9, 12, 15이므로, K-map을 그리면
+3의 배수는 3, 6, 9, 12, 15이므로, K-map을 그리면
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.3\linewidth]{lab3_2_3_km}
 \end{figure}
 따라서 simplification 한 결과는 다음과 같다.
 \begin{align*}
-  F_3(A_0, A_1, A_2, A_3) &= A_0' A_1' A_2' A_3' + A_0 A_1' A_2 A_3' + A_0' A_1 A_2' A_3 \\
-                          &= A_0 A_1' A_2' A_3 + A_0' A_1' A_2 A_3 + A_0 A_1 A_2 A_3
+  F_3(A_0, A_1, A_2, A_3) &= A_0 A_1' A_2 A_3' + A_0' A_1 A_2' A_3 + A_0 A_1' A_2' A_3 \\
+                          &+ A_0' A_1' A_2 A_3 + A_0 A_1 A_2 A_3
 \end{align*}
 
-2의 배수는 0, 2, 4, 6, 8, 10, 12, 14이므로, K-map을 그리면
+2의 배수는 2, 4, 6, 8, 10, 12, 14이므로, K-map을 그리면
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.3\linewidth]{lab3_2_2_km}
 \end{figure}
 따라서 simplification 한 결과는 다음과 같다.
 \begin{align*}
-  F_2(A_0, A_1, A_2, A_3) = A_0'
+  F_2(A_0, A_1, A_2, A_3) = A_0' A_1 + A_0' A_3 + A_0' A_2
 \end{align*}
 
 \subsection{5-bit Majority Function}
