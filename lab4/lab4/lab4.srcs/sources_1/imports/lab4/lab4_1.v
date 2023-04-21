@@ -13,7 +13,8 @@ module halfAdder(
     );
 
     ////////////////////////
-    /* Add your code here */
+    assign out_s = in_a ^ in_b; // add without carry is equivalent to XOR
+    assign out_c = in_a & in_b; // carry is 1 iff both A and B are 1
     ////////////////////////
 
 endmodule
@@ -31,7 +32,11 @@ module fullAdder(
     );
 
     ////////////////////////
-    /* Add your code here */
+    wire s_ab, c_ab; // wire for intermediate outputs
+    halfAdder ha1(in_a, in_b, s_ab, c_ab); // first half adder
+    wire ha2_carry; // wire for carry out of second half adder
+    halfAdder ha2(s_ab, in_c, out_s, ha2_carry); // second half adder
+    assign out_c = c_ab | ha2_carry; // carry out if one of the carry out of two half adders is one
     ////////////////////////
 
 endmodule
