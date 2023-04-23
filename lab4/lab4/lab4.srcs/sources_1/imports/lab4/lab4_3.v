@@ -14,7 +14,7 @@ module lab4_3(
     );
 
     ////////////////////////
-    lab4_2 adder(in_a, ~in_b, in_c, out_s, out_c);
+    lab4_2 adder(in_a, ~in_b, in_c, out_s, out_c); // use the ripple carry adder implemented earlier
     ////////////////////////
 
 endmodule
