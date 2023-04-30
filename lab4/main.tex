@@ -217,6 +217,17 @@ LSB를 연산하는 전가산기의 carry in에는 0을 입력하고, 각 전가
   \includegraphics[width=0.9\linewidth]{lab4_4_waveform.png}
 \end{figure}
 
+실제 하드웨어에 코드를 올리고 \(10101_2 + 01110_2 = 100011_2\)를 계산한 결과는 다음과 같다.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{add-hardware.jpg}
+\end{figure}
+\(10101_2 \times 111_2 = 10010011_2\)를 계산한 결과는 다음과 같다.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{mul-hardware.jpg}
+\end{figure}
+
 \section{논의}
 이번 lab 4를 통하여 수업에서 배운 이진수 연산을 수행하는 회로들에 대해 구현하고 시뮬레이션을 해 보았다.
 Ripple carry adder 이외에 carry lookahead를 활용한 adder 등, 더 효율적인 연산을 가능하게 하는 논리회로들도 구현해 보면 더 좋았을 것 같기도 하다.
