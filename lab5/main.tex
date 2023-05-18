@@ -128,6 +128,88 @@ Negative reset master-slave JK flip-flop의 회로도는 다음과 같다.
   \includegraphics[width=0.9\linewidth]{lab5_1_waveform.png}
 \end{figure}
 
+\subsubsection{FPGA 실험 결과}
+다음은 FPGA에서 코드를 실행한 결과들이다.
+\(x = 13, y = 6\) 입력을 넣었고, \texttt{sel} 입력을 0부터 11까지 바꿔가며 실행한 결과는 다음과 같다.
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel0_13_06.jpg}
+    \caption{\texttt{sel = 0}}
+  \end{minipage}\quad
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel1_13_06.jpg}
+    \caption{\texttt{sel = 1}}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel2_13_06.jpg}
+    \caption{\texttt{sel = 2}}
+  \end{minipage}\quad
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel3_13_06.jpg}
+    \caption{\texttt{sel = 3}}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel4_13_06.jpg}
+    \caption{\texttt{sel = 4}}
+  \end{minipage}\quad
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel5_13_06.jpg}
+    \caption{\texttt{sel = 5}}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel6_13_06.jpg}
+    \caption{\texttt{sel = 6}}
+  \end{minipage}\quad
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel7_13_06.jpg}
+    \caption{\texttt{sel = 7}}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel8_13_06.jpg}
+    \caption{\texttt{sel = 8}}
+  \end{minipage}\quad
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel9_13_06.jpg}
+    \caption{\texttt{sel = 9}}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel10_13_06.jpg}
+    \caption{\texttt{sel = 10}}
+  \end{minipage}\quad
+  \begin{minipage}{0.45\linewidth}
+    \centering
+    \includegraphics[width=1\linewidth]{sel11_13_06.jpg}
+    \caption{\texttt{sel = 11}}
+  \end{minipage}
+\end{figure}
+
 \subsection{\texttt{lab5\_2.v} -- Negative Reset Master-Slave JK Flip-Flop}
 SR latch 두 개를 연결한 회로도는 다음과 같다.
 \begin{figure}[H]
@@ -165,5 +247,7 @@ Negative reset master-slave JK flip-flop을 구현한 회로도는 다음과 같
 \end{figure}
 
 \section{논의}
+ALU와 flip-flop을 구현하면서 컴퓨터의 구조에 대해 알 수 있는 시간이었다.
+구현과 실험 등에서 몇 가지 시행착오를 거쳤지만 지금까지 배운 내용으로 실제 동작하는 회로를 만들었다는 사실이 뜻깊었다.
 
 \end{document}
