@@ -54,6 +54,7 @@ module lab6_tb();
             #10
             for (i = 0; i < 20; i = i + 1) begin
                 count_expected = i % 10;
+                #10
                 if (count === count_expected) begin
                     Passed = Passed + 1;
                 end
@@ -61,7 +62,6 @@ module lab6_tb();
                     Failed = Failed + 1;
                     $display("lab6_1 error: i=%d, count_expected=%d, count=%d", i, count_expected, count);
                 end
-                #10;
             end
             $display("Testing done.");
         end
