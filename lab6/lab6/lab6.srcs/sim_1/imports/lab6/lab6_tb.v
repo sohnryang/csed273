@@ -10,7 +10,25 @@ module lab6_tb();
 
     /* Define input, output and instantiate module */
     ////////////////////////
-    /* Add your code here */
+    reg reset_n, clk;
+    reg [3:0] count_expected;
+    wire [3:0] count;
+    decade_counter counter(reset_n, clk, count);
+
+    always begin
+        #5
+        clk = ~clk;
+    end
+
+    initial begin
+        $dumpfile("wave.vcd");
+        $dumpvars();
+
+        clk = 0;
+        reset_n = 0;
+        #15
+        reset_n = 1;
+    end
     ////////////////////////
 
     initial begin
@@ -28,7 +46,26 @@ module lab6_tb();
     /* Implement test task for lab6_1 */
     task lab6_1_test;
         ////////////////////////
-        /* Add your code here */
+        integer i;
+
+        begin
+            $display("Testing decade_counter...");
+            count_expected = 4'b0;
+            #10
+            for (i = 0; i < 20; i = i + 1) begin
+                count_expected = i % 10;
+                if (count === count_expected) begin
+                    Passed = Passed + 1;
+                end
+                else begin
+                    Failed = Failed + 1;
+                    $display("lab6_1 error: i=%d, count_expected=%d, count=%d", i, count_expected, count);
+                end
+                #10;
+            end
+            $display("Testing done.");
+        end
+
         ////////////////////////
     endtask
 
