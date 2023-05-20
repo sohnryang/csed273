@@ -18,6 +18,10 @@ module lab6_tb();
     reg [3:0] count_expected_2digits_0, count_expected_2digits_1;
     wire [7:0] count_2digits;
     decade_counter_2digits counter2d(reset_n, clk, count_2digits);
+    
+    reg [3:0] count_expected_369;
+    wire [3:0] count_369;
+    counter_369 counter369(reset_n, clk, count_369);
 
     always begin
         #5
@@ -30,7 +34,12 @@ module lab6_tb();
         #15
         reset_n = 1;
 
-        #195
+        #195 // lab6_1_test takes 210 timesteps, so wait 195 timesteps to synchronize.
+        reset_n = 0;
+        #15
+        reset_n = 1;
+        
+        #1995 // lab6_2_test takes 2010 timesteps, so wait 1995 timesteps to synchronize.
         reset_n = 0;
         #15
         reset_n = 1;
@@ -106,7 +115,41 @@ module lab6_tb();
     /* Implement test task for lab6_3 */
     task lab6_3_test;
         ////////////////////////
-        /* Add your code here */
+        integer i;
+        
+        begin
+            $display("Testing counter_369...");
+            count_expected_369 = 4'b0;
+            #10
+            for (i = 0; i < 8; i = i + 1) begin
+                if (i === 0) begin
+                    count_expected_369 = 4'd0;
+                end
+                else if (i === 1) begin
+                    count_expected_369 = 4'd3;
+                end
+                else begin
+                    if (i % 3 === 0) begin
+                        count_expected_369 = 4'd9;
+                    end
+                    else if (i % 3 === 1) begin
+                        count_expected_369 = 4'd13;
+                    end
+                    else begin
+                        count_expected_369 = 4'd6;
+                    end
+                end
+                #10
+                if (count_expected_369 === count_369) begin
+                    Passed = Passed + 1;
+                end
+                else begin
+                    Failed = Failed + 1;
+                    $display("lab6_3 error: i=%d, count_expected_369=%d, count_369=%d", i, count_expected_369, count_369);
+                end
+            end
+            $display("Testing done.");
+        end
         ////////////////////////
     endtask
 
