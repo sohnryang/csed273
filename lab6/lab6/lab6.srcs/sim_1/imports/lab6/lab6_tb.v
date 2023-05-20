@@ -11,7 +11,7 @@ module lab6_tb();
     /* Define input, output and instantiate module */
     ////////////////////////
     reg reset_n, clk;
-    reg [3:0] count_expected;
+    reg [3:0] count_expected_1digit;
     wire [3:0] count;
     decade_counter counter(reset_n, clk, count);
 
@@ -50,17 +50,17 @@ module lab6_tb();
 
         begin
             $display("Testing decade_counter...");
-            count_expected = 4'b0;
+            count_expected_1digit = 4'b0;
             #10
             for (i = 0; i < 20; i = i + 1) begin
-                count_expected = i % 10;
+                count_expected_1digit = i % 10;
                 #10
-                if (count === count_expected) begin
+                if (count === count_expected_1digit) begin
                     Passed = Passed + 1;
                 end
                 else begin
                     Failed = Failed + 1;
-                    $display("lab6_1 error: i=%d, count_expected=%d, count=%d", i, count_expected, count);
+                    $display("lab6_1 error: i=%d, count_expected_1digit=%d, count=%d", i, count_expected_1digit, count);
                 end
             end
             $display("Testing done.");
