@@ -22,7 +22,8 @@ endmodule
 module edge_trigger_D_FF(input reset_n, input d, input clk, output q, output q_);   
 
     ////////////////////////
-    /* Add your code here */
+    // connect J to D and K to ~D.
+    edge_trigger_JKFF jkff(reset_n, d, ~d, clk, q, q_);
     ////////////////////////
  
 endmodule
