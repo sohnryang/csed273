@@ -8,7 +8,9 @@
 module decade_counter_2digits(input reset_n, input clk, output [7:0] count);
 
     ////////////////////////
-    /* Add your code here */
+    decade_counter dec0(reset_n, clk, count[3:0]); // lowest digit
+    // Highest digit. Update when lowest digit's highest bit changes from 1 to 0.
+    decade_counter dec1(reset_n, count[3], count[7:4]);
     ////////////////////////
 	
 endmodule

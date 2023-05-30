@@ -9,7 +9,18 @@
 module counter_369(input reset_n, input clk, output [3:0] count);
 
     ////////////////////////
-    /* Add your code here */
+    wire d0, d1, d2, d3; // inputs for D flip-flops
+    
+    // Set inputs for D flip-flops per each bit
+    assign d0 = ~count[0] | ~count[2] & count[3];
+    assign d1 = ~count[2] & ~count[3] | count[2] & count[3];
+    assign d2 = count[0];
+    assign d3 = ~count[0] & count[1] | ~count[2] & count[3];
+    
+    edge_trigger_D_FF dff0(reset_n, d0, clk, count[0]); // D flip-flop for bit 0
+    edge_trigger_D_FF dff1(reset_n, d1, clk, count[1]); // D flip-flop for bit 1
+    edge_trigger_D_FF dff2(reset_n, d2, clk, count[2]); // D flip-flop for bit 2
+    edge_trigger_D_FF dff3(reset_n, d3, clk, count[3]); // D flip-flop for bit 3
     ////////////////////////
 	
 endmodule
