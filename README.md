@@ -1,29 +1,14 @@
 # CSED273: Digital System Design
 > 베 릴 로 그
 
-## Lab 1
-
-논리 게이트, NAND/NOR으로 AND, OR, NOT 구현하기
-
-## Lab 2
-
-Karnaugh map을 통한 minimization
-
-## Lab 3
-
-디코더와 멀티플렉서
-
-## Lab 4
-
-반가산기와 전가산기, 덧셈, 곱셈, 뺄셈의 구현
-
-## Lab 5
-
-ALU, flip-flop의 구현
-
-## Lab 6
-
-Counter의 구현
+| Lab   | 내용                                            |
+| ----- | ----------------------------------------------- |
+| Lab 1 | 논리 게이트, NAND/NOR으로 AND, OR, NOT 구현하기 |
+| Lab 2 | Karnaugh map을 통한 minimization                |
+| Lab 3 | 디코더와 멀티플렉서                             |
+| Lab 4 | 반가산기와 전가산기, 덧셈, 곱셈, 뺄셈의 구현    |
+| Lab 5 | ALU, flip-flop의 구현                           |
+| Lab 6 | Counter의 구현                                  |
 
 ## Tips & Tricks
 
