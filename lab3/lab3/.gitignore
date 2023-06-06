@@ -70,3 +70,6 @@
 
 # End of https://www.toptal.com/developers/gitignore/api/vivado
 
+lab3.cache/
+lab3.runs/
+lab3.sim/
